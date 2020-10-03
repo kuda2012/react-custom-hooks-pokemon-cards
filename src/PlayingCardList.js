@@ -8,7 +8,7 @@ import useAxios from "./hooks/useAxios";
 /* Renders a list of playing cards.
  * Can also add a new card at random. */
 const CardTable = () => {
-  const [cards, setCards] = useAxios(
+  const [cards, setCards, removeCards] = useAxios(
     "https://deckofcardsapi.com/api/deck/new/draw/"
   );
   return (
@@ -16,6 +16,7 @@ const CardTable = () => {
       <h3>Pick a card, any card!</h3>
       <div>
         <button onClick={() => setCards()}>Add a playing card!</button>
+        <button onClick={() => removeCards()}>Remove All Cards!</button>
       </div>
       <div className="PlayingCardList-card-area">
         {cards.map((cardData) => (

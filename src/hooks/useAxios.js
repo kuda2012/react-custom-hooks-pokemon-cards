@@ -13,7 +13,10 @@ const useAxios = (url) => {
       setData((data) => [...data, { ...response.data, id: uuid() }]);
     }
   };
-  return [data, getUrl];
+  const removeData = () => {
+    setData([]);
+  };
+  return [data, getUrl, removeData];
 };
 
 export default useAxios;
